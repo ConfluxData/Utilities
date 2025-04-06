@@ -1,0 +1,25 @@
+Source Catalog,Source Schema,Source Table,Partition Column names,Target catalog,Target Schema,Target Table Name,Target Table Format
+tpch,tiny,nation,n_regionkey,iceberg,default,nation_iceberg,ICEBERG
+tpch,tiny,region,,iceberg,default,region_iceberg,ICEBERG
+tpch,tiny,supplier,s_nationkey,iceberg,default,supplier_iceberg,ICEBERG
+tpch,tiny,partsupp,,iceberg,default,partsupp_iceberg,ICEBERG
+tpch,tiny,customer,c_nationkey,iceberg,default,customer_iceberg,ICEBERG
+tpch,tiny,part,,iceberg,default,part_iceberg,ICEBERG
+tpch,tiny,lineitem,l_shipdate,iceberg,default,lineitem_iceberg,ICEBERG
+tpch,tiny,orders,o_orderdate,iceberg,default,orders_iceberg,ICEBERG
+tpch,tiny,nation,n_regionkey,delta,default,nation_delta,DELTA
+tpch,tiny,region,,delta,default,region_delta,DELTA
+tpch,tiny,supplier,s_nationkey,delta,default,supplier_delta,DELTA
+tpch,tiny,partsupp,,delta,default,partsupp_delta,DELTA
+tpch,tiny,customer,c_nationkey,delta,default,customer_delta,DELTA
+tpch,tiny,part,,delta,default,part_delta,DELTA
+tpch,tiny,lineitem,l_shipdate,delta,default,lineitem_delta,DELTA
+tpch,tiny,orders,o_orderdate,delta,default,orders_delta,DELTA
+tpch,tiny,nation,,hive,default,nation_par,PARQUET
+tpch,tiny,region,,hive,default,region_par,PARQUET
+tpch,tiny,supplier,,hive,default,supplier_par,PARQUET
+tpch,tiny,partsupp,,hive,default,partsupp_par,PARQUET
+tpch,tiny,customer,,hive,default,customer_par,PARQUET
+tpch,tiny,part,,hive,default,part_par,PARQUET
+tpch,tiny,lineitem,,hive,default,lineitem_par,PARQUET
+tpch,tiny,orders,,hive,default,orders_par,PARQUET
