@@ -1,25 +1,31 @@
-Source Catalog,Source Schema,Source Table,Partition Column names,Target catalog,Target Schema,Target Table Name,Target Table Format
-tpch,tiny,nation,n_regionkey,iceberg,default,nation_iceberg,ICEBERG
-tpch,tiny,region,,iceberg,default,region_iceberg,ICEBERG
-tpch,tiny,supplier,s_nationkey,iceberg,default,supplier_iceberg,ICEBERG
-tpch,tiny,partsupp,,iceberg,default,partsupp_iceberg,ICEBERG
-tpch,tiny,customer,c_nationkey,iceberg,default,customer_iceberg,ICEBERG
-tpch,tiny,part,,iceberg,default,part_iceberg,ICEBERG
-tpch,tiny,lineitem,l_shipdate,iceberg,default,lineitem_iceberg,ICEBERG
-tpch,tiny,orders,o_orderdate,iceberg,default,orders_iceberg,ICEBERG
-tpch,tiny,nation,n_regionkey,delta,default,nation_delta,DELTA
-tpch,tiny,region,,delta,default,region_delta,DELTA
-tpch,tiny,supplier,s_nationkey,delta,default,supplier_delta,DELTA
-tpch,tiny,partsupp,,delta,default,partsupp_delta,DELTA
-tpch,tiny,customer,c_nationkey,delta,default,customer_delta,DELTA
-tpch,tiny,part,,delta,default,part_delta,DELTA
-tpch,tiny,lineitem,l_shipdate,delta,default,lineitem_delta,DELTA
-tpch,tiny,orders,o_orderdate,delta,default,orders_delta,DELTA
-tpch,tiny,nation,,hive,default,nation_par,PARQUET
-tpch,tiny,region,,hive,default,region_par,PARQUET
-tpch,tiny,supplier,,hive,default,supplier_par,PARQUET
-tpch,tiny,partsupp,,hive,default,partsupp_par,PARQUET
-tpch,tiny,customer,,hive,default,customer_par,PARQUET
-tpch,tiny,part,,hive,default,part_par,PARQUET
-tpch,tiny,lineitem,,hive,default,lineitem_par,PARQUET
-tpch,tiny,orders,,hive,default,orders_par,PARQUET
+type,Source Catalog,Source Schema,Source Table,Partition Column names,Target catalog,Target Schema,Target Table Name,Target Table Format,where_predicate
+CTAS,tpch,tiny,nation,n_regionkey,iceberg,default,nation_iceberg,ICEBERG
+CTAS,tpch,tiny,region,,iceberg,default,region_iceberg,ICEBERG
+CTAS,tpch,tiny,supplier,s_nationkey,iceberg,default,supplier_iceberg,ICEBERG
+CTAS,tpch,tiny,partsupp,,iceberg,default,partsupp_iceberg,ICEBERG
+CTAS,tpch,tiny,customer,c_nationkey,iceberg,default,customer_iceberg,ICEBERG
+CTAS,tpch,tiny,part,,iceberg,default,part_iceberg,ICEBERG
+CTASND,tpch,tiny,lineitem,l_shipdate,iceberg,default,lineitem_iceberg,ICEBERG
+CTASND,tpch,tiny,orders,o_orderdate,iceberg,default,orders_iceberg,ICEBERG
+CTAS,tpch,tiny,nation,n_regionkey,delta,default,nation_delta,DELTA
+CTAS,tpch,tiny,region,,delta,default,region_delta,DELTA
+CTAS,tpch,tiny,supplier,s_nationkey,delta,default,supplier_delta,DELTA
+CTAS,tpch,tiny,partsupp,,delta,default,partsupp_delta,DELTA
+CTAS,tpch,tiny,customer,c_nationkey,delta,default,customer_delta,DELTA
+CTAS,tpch,tiny,part,,delta,default,part_delta,DELTA
+CTASND,tpch,tiny,lineitem,l_shipdate,delta,default,lineitem_delta,DELTA
+CTASND,tpch,tiny,orders,o_orderdate,delta,default,orders_delta,DELTA
+CTAS,tpch,tiny,nation,n_regionkey,hive,default,nation_par,PARQUET
+CTAS,tpch,tiny,region,,hive,default,region_par,PARQUET
+CTAS,tpch,tiny,supplier,s_nationkey,hive,default,supplier_par,PARQUET
+CTAS,tpch,tiny,partsupp,,hive,default,partsupp_par,PARQUET
+CTAS,tpch,tiny,customer,c_nationkey,hive,default,customer_par,PARQUET
+CTAS,tpch,tiny,part,,hive,default,part_par,PARQUET
+CTASND,tpch,tiny,lineitem,l_shipdate,hive,default,lineitem_par,PARQUET
+CTASND,tpch,tiny,orders,o_orderdate,hive,default,orders_par,PARQUET
+IIS,tpch,tiny,orders,o_orderdate,hive,default,orders_par,PARQUET,"(o_orderdate >= date('1992-01-01') AND o_orderdate < date('1993-01-01')),(o_orderdate >= date('1993-01-01') AND o_orderdate < date('1995-01-01')),(o_orderdate >= date('1995-01-01') AND o_orderdate < date('1997-01-01')),(o_orderdate >= date('1997-01-01') AND o_orderdate < date('2000-01-01'))"
+IIS,tpch,tiny,lineitem,l_shipdate,hive,default,lineitem_par,PARQUET,"(l_shipdate >= date('1992-01-01') AND l_shipdate < date('1993-01-01')),(l_shipdate >= date('1993-01-01') AND l_shipdate < date('1995-01-01')),(l_shipdate >= date('1995-01-01') AND l_shipdate < date('1997-01-01')),(l_shipdate >= date('1997-01-01') AND l_shipdate < date('2000-01-01'))"
+IIS,tpch,tiny,orders,o_orderdate,hive,default,orders_delta,DELTA,"(o_orderdate >= date('1992-01-01') AND o_orderdate < date('1993-01-01')),(o_orderdate >= date('1993-01-01') AND o_orderdate < date('1995-01-01')),(o_orderdate >= date('1995-01-01') AND o_orderdate < date('1997-01-01')),(o_orderdate >= date('1997-01-01') AND o_orderdate < date('2000-01-01'))"
+IIS,tpch,tiny,lineitem,l_shipdate,hive,default,lineitem_delta,DELTA,"(l_shipdate >= date('1992-01-01') AND l_shipdate < date('1993-01-01')),(l_shipdate >= date('1993-01-01') AND l_shipdate < date('1995-01-01')),(l_shipdate >= date('1995-01-01') AND l_shipdate < date('1997-01-01')),(l_shipdate >= date('1997-01-01') AND l_shipdate < date('2000-01-01'))"
+IIS,tpch,tiny,orders,o_orderdate,hive,default,orders_iceberg,ICEBERG,"(o_orderdate >= date('1992-01-01') AND o_orderdate < date('1993-01-01')),(o_orderdate >= date('1993-01-01') AND o_orderdate < date('1995-01-01')),(o_orderdate >= date('1995-01-01') AND o_orderdate < date('1997-01-01')),(o_orderdate >= date('1997-01-01') AND o_orderdate < date('2000-01-01'))"
+IIS,tpch,tiny,lineitem,l_shipdate,hive,default,lineitem_iceberg,ICEBERG,"(l_shipdate >= date('1992-01-01') AND l_shipdate < date('1993-01-01')),(l_shipdate >= date('1993-01-01') AND l_shipdate < date('1995-01-01')),(l_shipdate >= date('1995-01-01') AND l_shipdate < date('1997-01-01')),(l_shipdate >= date('1997-01-01') AND l_shipdate < date('2000-01-01'))"
