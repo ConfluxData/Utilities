@@ -104,7 +104,7 @@ def generate_iis_query(
         if target_format == "parquet":
             ## get all columns
             partition_list = [f'{col.strip()}' for col in partition_columns.split(",")]
-            all_columns = get_trino_table_columns(trino_host, trino_port, trino_user, target_table_full)
+            all_columns = get_trino_table_columns(trino_host, trino_port, trino_user, source_table_full)
             #print("All Columns: ", all_columns)
             #print("Part Columns: ", partition_columns)
             final_columns = reorder_columns_with_partitions(all_columns, partition_list)
